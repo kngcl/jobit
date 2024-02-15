@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: white;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+li:hover::before {
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: #915EFF;
+  right: 0;
+  bottom: -9px;
+  color: #915EFF;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.card {
+  background: #000;
+}
+
+.jobButton:hover {
+  color: #915EFF !important;
+}
