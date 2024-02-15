@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BiTimeFive } from 'react-icons/bi';
 import { fetchJobList } from "../../apis/api";
+import moment from 'moment';
+
 
 const Jobs = ({ searchParams }) => {
     const [jobs, setJob] = useState([]);
@@ -33,13 +35,13 @@ const Jobs = ({ searchParams }) => {
     }
 
     //truncasteString
-/*     function truncateString16(str, limit =30) {
-        if (str && str.length > limit) {
-            return str.substring(0, limit)
-        } else {
-            return str;
-        }
-    } */
+    /*     function truncateString16(str, limit =30) {
+            if (str && str.length > limit) {
+                return str.substring(0, limit)
+            } else {
+                return str;
+            }
+        } */
 
     //translate text 
     const translateText = async (text) => {
@@ -84,6 +86,8 @@ const Jobs = ({ searchParams }) => {
         }
     };
 
+
+
     return (
         <div>
             {loading ? (
@@ -99,9 +103,13 @@ const Jobs = ({ searchParams }) => {
                                     <h1 className="text-[90%] font-semibold text-textcolor group-hover:text-white max-w-[200px] overflow-hidden overflow-ellipsis max-h-[3em] line-clamp-2 pb-10">
                                         {job.title}
                                     </h1>
-                                    <span className="flex items-center text-[#ccc] gap-1">
-                                        <BiTimeFive />Now
-                                    </span>
+                                    <div className="relative">
+                                        <div className="flex absolute items-center text-[#ccc] -right-4  py-7 gap-1">
+                                            <BiTimeFive />
+                                            <p className="w-[100px]">{moment(job.publishedAt).fromNow()}</p>
+                                        </div>
+                                    </div>
+
                                 </span>
                                 <h6 className="text-[#ccc] mt-2">
                                     {job.locations?.slice(0, 1)?.map((location) => (
