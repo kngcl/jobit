@@ -8,6 +8,8 @@ const ParentComponent = () => {
         clock: "",
         house: "",
         location: "",
+        type: null,
+        contract: null,
     });
 
     const handleSearch = (newSearchParams) => {

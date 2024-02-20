@@ -54,13 +54,13 @@ const Footer = () => {
                 <div>
                     <small className="text-[14px] text-white">ketchasso72@gmail.com</small>
                     <div className="icons flex gap-4 py-[1rem]">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/ketchasso-charles-20340222b/" target="_blank" rel="noopener noreferrer">
                             <FaLinkedin className="bg-white p-[8px] h-[35px] w-[35px] rounded-full icon text-[#915EFF]" />
                         </a>
-                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/kngcl" target="_blank" rel="noopener noreferrer">
                             <FaGithub className="bg-white p-[8px] h-[35px] w-[35px] rounded-full icon text-[#915EFF]" />
                         </a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://twitter.com/KNGCL3" target="_blank" rel="noopener noreferrer">
                             <AiOutlineTwitter className="bg-white p-[8px] h-[35px] w-[35px] rounded-full icon text-[#915EFF]" />
                         </a>
                     </div>

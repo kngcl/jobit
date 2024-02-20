@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className="navbar flex justify-between items-center p-3 sm:p-6">
             <div className="logoDiv">
                 <h1 className="logo text-2xl sm:text-3xl text-[#915EFF]">
-                    <b>Job</b> Search
+                    <b>Tech-Job</b> Search
                 </h1>
             </div>
             <ul className="menu hidden sm:flex gap-8 sm:flex-wrap">
