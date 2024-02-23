@@ -72,6 +72,7 @@ const Jobs = ({ searchParams }) => {
     const [selectedJobId, setSelectedJobId] = useState(null);
 
     const openModal = (jobId) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         setSelectedJobId(jobId);
     };
 
@@ -90,7 +91,7 @@ const Jobs = ({ searchParams }) => {
         return (
             <div className={`modal ${isOpen ? 'block' : 'hidden'} flex items-center justify-center z-50`}>
                 <div className="modal-overlay fixed inset-0 bg-black opacity-50"></div>
-                <div className="modal-content bg-white rounded-lg shadow-lg absolute left-1/2 top-full transform -translate-x-1/2 -translate-y-1/2 w-auto p-4 overflow-y-auto max-h-screen">
+                <div className="modal-content bg-white rounded-lg shadow-lg absolute left-1/2 top-full transform -translate-x-1/2 -translate-y-full mt-9 w-auto p-4 overflow-y-auto max-h-screen">
                     <div className="sticky top-0 bg-white py-6 mb-4 z-10">
                         <div className="flex justify-between divide-full mx-4">
                             <h2 className="text-xl font-semibold">Job Title - {job.title}</h2>
@@ -103,8 +104,8 @@ const Jobs = ({ searchParams }) => {
                     </div>
                     <div className="text-gray-800 modal-scrollbar" dangerouslySetInnerHTML={createMarkup(job.body)} />
                     <div className="flex justify-center">
-                        <button className="btn-close px-10 py-4 bg-[#915EFF] text-white rounded-lg" onClick={job.url_linkedin}>
-                            <a href={job.url_linkedin}>Apply</a>
+                        <button className="btn-close px-10 py-4 bg-[#915EFF] text-white rounded-lg" onClick={() => window.location.href = job?.company?.url_linkedin}>
+                            Apply
                         </button>
                     </div>
                 </div>
@@ -127,7 +128,7 @@ const Jobs = ({ searchParams }) => {
                     {
                         currentJobs.length > 0 ? (
                             <div>
-                            {/*     <div className="flex justify-start mt-8">
+                                {/*     <div className="flex justify-start mt-8">
                                     <p className="text-pretty text-3xl  font-medium">Welcome to the Search Platform for Developers</p>
                                 </div> */}
 
@@ -169,7 +170,7 @@ const Jobs = ({ searchParams }) => {
                                                 onClick={() => openModal(job.id)}
                                                 className="jobButton border-[2px] rounded-[10px] block p-[10px] w-full text-[14px] font-semibold text-textcolor group-hover/item:text-textcolor group-hover:text-white hover:bg-white"
                                             >
-                                                More Details...
+                                               More Details...
                                             </button>
                                         </div>
                                     ))}
