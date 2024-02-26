@@ -37,17 +37,32 @@ const NavBar = () => {
                     />
                 </svg>
             </div>
-            <div
-                className={`${toggle ? "flex bg-slate-50" : "hidden"
-                    } p-6 black-gradient absolute  top-20 right-0  mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-            >
-                <ul className="list-none sm:hidden flex flex-col gap-4">
-                    <li className="menuList text-[#6f6f6f]">Jobs</li>
-                    <li className="menuList text-[#6f6f6f]">Companies</li>
-                    <li className="menuList text-[#6f6f6f]">Contact</li>
-                    <li className="menuList text-[#6f6f6f]">About</li>
-                </ul>
-            </div>
+            {
+                toggle ? (
+                    <div
+                        className={`flex p-6 black-gradient absolute  top-20 right-0  mx-4 -my-7 min-w-[140px] z-10 rounded-xl bg-[#915EFF]`}
+                    >
+                        <ul className="list-none sm:hidden flex flex-col gap-4 text-[#fff] hover:text-[#915EFF] ">
+                            <li className="menuList ">Jobs</li>
+                            <li className="menuList ">Companies</li>
+                            <li className="menuList ">Contact</li>
+                            <li className="menuList ">About</li>
+                        </ul>
+                    </div>
+                ) : (
+                    <div
+                        className="hidden sm:hidden"
+                    >
+                        <ul className="list-none sm:hidden flex flex-col gap-4  hover:text-[#915EFF]">
+                            <li className="menuList ">Jobs</li>
+                            <li className="menuList ">Companies</li>
+                            <li className="menuList ">Contact</li>
+                            <li className="menuList ">About</li>
+                        </ul>
+                    </div>
+                )
+            }
+
         </div>
     );
 };

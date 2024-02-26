@@ -27,7 +27,7 @@ const Search = ({ onSearch }) => {
   return (
     <div className="searchDiv grid gap-10 bg-greyIsh rounded-[10px] p-[3rem]">
       <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
-        <div className="firstDiv flex flex-wrap justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 shadow-lg shadow-greyIsh-700">
+        <div className="firstDiv flex flex-wrap justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 shadow-lg shadow-greyIsh-700 ">
           <div className="flex gap-2 item-center w-full sm:w-auto">
             <AiOutlineSearch className="text-[25px] icon" />
             <input
@@ -50,13 +50,13 @@ const Search = ({ onSearch }) => {
             />
           </div>
 
-          <div className="flex gap-2 items-center w-full sm:w-auto">
+          <div className="flex gap-1 items-center w-full sm:w-auto">
             <label htmlFor="type" className="text-[#a5a6a6]">Type:</label>
             <select
               id="type"
               value={searchType}
               onChange={(e) => setSearchType(e.target.value)}
-              className="text-[#915EFF] bg-white border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#915EFF] focus:border-transparent"
+              className="text-[#915EFF] bg-white border border-gray-300 px- py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#915EFF] focus:border-transparent"
             >
               <option value="">All</option>
               <option value="Full-time">Full-time</option>
@@ -64,7 +64,7 @@ const Search = ({ onSearch }) => {
             </select>
           </div>
 
-          <div className="flex gap-2 items-center w-full sm:w-auto">
+          <div className="flex gap-1 items-center w-full sm:w-auto">
             <label htmlFor="contact" className="text-[#a5a6a6]">Contract:</label>
             <select
               id="contact"
@@ -81,7 +81,7 @@ const Search = ({ onSearch }) => {
         <div className="mt-4">
           <button
             type="submit"
-            className="cursor-pointer bg-[#915EFF] hover:bg-[#b69bf0] rounded-[10px] text-white py-5 px-10 h-full"
+            className="  cursor-pointer bg-[#915EFF] hover:bg-[#b69bf0] rounded-[10px] text-white py-5 px-10 h-full "
           >
             Search
           </button>
