@@ -8,19 +8,23 @@ import Value from './Components/ValueDiv/Value'
 import Footer from './Components/FooterDiv/Footer'
 import Jobs from './Components/JobDiv/Jobs'
 import ParentComponent from './Components/JobSearch/JobSearch'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login from './Components/Login/Login'
+import SignUp from './Components/SignUp/SignUp'
+import HomePage from './Components/HomePage'
 
 function App() {
+  const [user, setUser] = useState(null)
 
   return (
 
-    <div className='w-[85%] m-auto bg-white'>
-      <NavBar />
-      <ParentComponent />
-      {/*  <Search/>
-      <Jobs/> */}
-      {/*    <Value/> */}
-      <Footer />
-    </div>
+    <BrowserRouter className='w-[85%] m-auto bg-white'>
+      <Routes>
+        <Route path='/' element={<Login setUser={setUser} />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/homepage' element={<HomePage user={user}/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

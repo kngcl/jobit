@@ -91,21 +91,28 @@ const Jobs = ({ searchParams }) => {
         return (
             <div className={`modal ${isOpen ? 'block' : 'hidden'} flex items-center justify-center z-50`}>
                 <div className="modal-overlay fixed inset-0 bg-black opacity-50"></div>
-                <div className="modal-content bg-white rounded-lg shadow-lg absolute left-1/2 top-full transform -translate-x-1/2 -translate-y-full mt-9 w-auto p-4 overflow-y-auto max-h-screen">
+                <div className="modal-content bg-white rounded-lg shadow-lg absolute left-1/2 top-full transform -translate-x-1/2 -translate-y-full mt-9 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] p-6 overflow-y-auto max-h-screen">
                     <div className="sticky top-0 bg-white py-6 mb-4 z-10">
-                        <div className="flex justify-between divide-full mx-4">
-                            <h2 className="text-xl font-semibold">Job Title - {job.title}</h2>
+                        <div className="flex justify-between divide-full">
+                            <h2 className="text-2xl font-semibold">{job.title}</h2>
                             <div>
                                 <button className="btn-close px-4 py-2 bg-red-500 text-white rounded-lg" onClick={onClose}>
                                     x
                                 </button>
                             </div>
                         </div>
+                        <div className="flex items-center mt-4">
+                            <img src={job.company.logo} alt={job.company.name} className="w-12 h-12 rounded-full mr-4" />
+                            <div>
+                                <h3 className="text-lg font-medium">{job.company.name}</h3>
+                                <p className="text-gray-500">{job.company.location}</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="text-gray-800 modal-scrollbar" dangerouslySetInnerHTML={createMarkup(job.body)} />
-                    <div className="flex justify-center">
-                        <button className="btn-close px-10 py-4 bg-[#915EFF] text-white rounded-lg" onClick={() => window.location.href = job?.company?.url_linkedin}>
-                            Apply
+                    <div className="flex justify-center mt-8">
+                        <button className="btn-close px-10 py-4 bg-[#915EFF] text-white rounded-lg hover:bg-[#7239cf] transition-colors duration-300" onClick={() => window.location.href = job?.company?.url_linkedin}>
+                            Apply Now
                         </button>
                     </div>
                 </div>
@@ -170,7 +177,7 @@ const Jobs = ({ searchParams }) => {
                                                 onClick={() => openModal(job.id)}
                                                 className="jobButton border-[2px] rounded-[10px] block p-[10px] w-full text-[14px] font-semibold text-textcolor group-hover/item:text-textcolor group-hover:text-white hover:bg-white"
                                             >
-                                               More Details...
+                                                More Details...
                                             </button>
                                         </div>
                                     ))}

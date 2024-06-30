@@ -25,14 +25,14 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="searchDiv grid gap-10 bg-greyIsh rounded-[10px] p-[3rem]">
+    <div className="searchDiv grid gap-10 bg-white rounded-[10px] p-[3rem] shadow-lg shadow-gray-200 mt-16">
       <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
-        <div className="firstDiv flex flex-wrap justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 shadow-lg shadow-greyIsh-700 ">
+        <div className="firstDiv flex flex-wrap justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 border border-gray-200">
           <div className="flex gap-2 item-center w-full sm:w-auto">
-            <AiOutlineSearch className="text-[25px] icon" />
+            <AiOutlineSearch className="text-[25px] icon text-gray-500" />
             <input
               type="text"
-              className="bg-transparent text-[#915EFF] focus:outline-none w-full"
+              className="bg-transparent text-[#915EFF] focus:outline-none w-full placeholder:text-gray-400"
               placeholder="Search by Job Title"
               value={searchTermClock}
               onChange={(e) => setSearchTermClock(e.target.value)}
@@ -40,10 +40,10 @@ const Search = ({ onSearch }) => {
           </div>
 
           <div className="flex gap-2 item-center w-full sm:w-auto">
-            <CiLocationOn className="text-[25px] icon" />
+            <CiLocationOn className="text-[25px] icon text-gray-500" />
             <input
               type="text"
-              className="bg-transparent text-[#915EFF] focus:outline-none w-full"
+              className="bg-transparent text-[#915EFF] focus:outline-none w-full placeholder:text-gray-400"
               placeholder="Search by Location"
               value={searchTermLocation}
               onChange={(e) => setSearchTermLocation(e.target.value)}
@@ -51,12 +51,12 @@ const Search = ({ onSearch }) => {
           </div>
 
           <div className="flex gap-1 items-center w-full sm:w-auto">
-            <label htmlFor="type" className="text-[#a5a6a6]">Type:</label>
+            <label htmlFor="type" className="text-gray-500 font-medium">Type:</label>
             <select
               id="type"
               value={searchType}
               onChange={(e) => setSearchType(e.target.value)}
-              className="text-[#915EFF] bg-white border border-gray-300 px- py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#915EFF] focus:border-transparent"
+              className="text-[#915EFF] bg-white border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#915EFF] focus:border-transparent"
             >
               <option value="">All</option>
               <option value="Full-time">Full-time</option>
@@ -65,7 +65,7 @@ const Search = ({ onSearch }) => {
           </div>
 
           <div className="flex gap-1 items-center w-full sm:w-auto">
-            <label htmlFor="contact" className="text-[#a5a6a6]">Contract:</label>
+            <label htmlFor="contact" className="text-gray-500 font-medium">Contract:</label>
             <select
               id="contact"
               value={searchContact}
@@ -78,10 +78,10 @@ const Search = ({ onSearch }) => {
             </select>
           </div>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex justify-end">
           <button
             type="submit"
-            className="  cursor-pointer bg-[#915EFF] hover:bg-[#b69bf0] rounded-[10px] text-white py-5 px-10 h-full "
+            className="cursor-pointer bg-[#915EFF] hover:bg-[#b69bf0] rounded-[10px] text-white py-3 px-8 h-full transition-colors duration-300"
           >
             Search
           </button>
