@@ -8,6 +8,7 @@ import './jobs.css'
 
 const Jobs = ({ searchParams }) => {
     const [jobs, setJob] = useState([]);
+    const [renderJobs, setRenderJobs] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [jobsPerPage] = useState(6);
     const [loading, setLoader] = useState(false);
@@ -36,6 +37,39 @@ const Jobs = ({ searchParams }) => {
             return str;
         }
     }
+    // get all jobs
+    useEffect(() => {
+        const fetchDatas = async () => {
+            try {
+                setLoader(true);
+                const joblist = await fetch('http://localhost:8001/api/jobs')
+                    .then(response => response.json())
+                    .then(renderJobs => {
+                        // Display the fetched jobs
+                        setJob([renderJobs, ...jobs]);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching jobs:', error);
+                    });
+
+                setJob(joblist.results);
+                setLoader(false);
+            } catch (error) {
+                console.error('error fetching job list', error);
+                setLoader(false);
+            }
+        };
+        fetchDatas();
+    }, []);
+
+    function truncateString(str, limit = 100) {
+        if (str && str.length > limit) {
+            return str.substring(0, limit) + "...";
+        } else {
+            return str;
+        }
+    }
+
 
 
     // Filter jobs based on searchParams
@@ -161,16 +195,16 @@ const Jobs = ({ searchParams }) => {
                                                     )}
                                                         {(!location || !location.name) && <span>location</span>}</span>
                                                 ))}<span>({job.types?.map((type) => (
-                                                    <span>{type.name}</span>
+                                                    <span key={type.id}>{type.name}</span>
                                                 ))})</span>
                                             </h6>
                                             <p className="text-[13px] text-[#959595] pt-4 border-t-[2px] mt-4 group-hover:text-white max-h-[80px] overflow-hidden">
-                                                {truncateString(/* translateText */(job.company.description))}
+                                                {truncateString(/* translateText */(job.company?.description || job?.jobDescription))}
                                             </p>
                                             <div className="company flex items-center gap-2 mt-4">
-                                                <img src={job.company.logo} alt="company Logo" className="w-[10%]" />
+                                                <img src={job.company?.logo} alt="company Logo" className="w-[10%]" />
                                                 <span className="text-[14px] py-[1rem] block group-hover:text-white">
-                                                    {job.company.slug.substring(0, 25) + (job.company.slug.length > 25 ? '...' : '')}
+                                                    {job.company?.slug.substring(0, 25) + (job.company?.slug.length > 25 ? '...' : '')}
                                                 </span>
                                             </div>
                                             <button

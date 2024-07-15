@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className="footer p-[5rem]  bg-[#915EFF] rounded-[10px] flex flex-wrap gap-14 items-center justify-center mb-0">
+        <div className="footer p-[1rem]  bg-[#915EFF] rounded-t-lg  flex flex-wrap gap-14 items-center justify-center mb-0 left-0 right-0">
             <div className="w-full sm:w-1/2 md:w-auto mb-10">
                 <div className="logoDiv">
                     <h1 className="logo text-[25px] text-white pb-[1.5rem]">

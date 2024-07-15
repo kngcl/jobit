@@ -6,10 +6,12 @@ import NavBar from "./NavBar/NavBar";
 
 function HomePage() {
   return (
-    <div className="w-[90%] m-auto bg-white">
-        <NavBar/>
+    <div className="m-auto bg-white">
+      <div className='w-[90%] m-auto'>
+        <NavBar />
         <ParentComponent />
-        <Footer />
+      </div>
+      <Footer />
     </div>
   );
 }
